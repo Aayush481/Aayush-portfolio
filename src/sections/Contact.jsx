@@ -190,7 +190,7 @@ const Contact = () => {
           {errors.service && <p className="text-red-500 text-xs">{errors.service}</p>}
         </div>
 
-        {/* Budget (conditional) */}
+        {/* Budget  */}
         {formData.service && formData.service !== "others" && (
           <div className="flex flex-col gap-2 text-white">
             <label htmlFor="budget" className="mb-0.5">

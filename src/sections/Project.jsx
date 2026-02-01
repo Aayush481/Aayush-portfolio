@@ -42,19 +42,20 @@ const Project = () => {
         title: 'Weather App',
         link: 'https://github.com/Aayush481/weather-app.git',
         img: isMobile ? img1 : photo1,
-        bgColor: '#2c2e5a',
+        bgColor: '#2e1a47',
       },
       {
         title: 'RazorPay Clone',
         link: 'https://github.com/Aayush481/razorpay-clone-project.git',
         img: isMobile ? img2 : photo2,
-        bgColor: '#121c2b',
+        bgColor: '#1e3a5f',
       },
       {
         title: 'NoteKr App',
         link: 'https://github.com/Aayush481/Notekr-web.git',
         img: isMobile ? img3 : photo3,
-        bgColor: '#1e2a44',
+        
+        bgColor : "#22304a"
       },
     ],
     [isMobile]
@@ -130,7 +131,7 @@ const Project = () => {
                       block text-center
                       text-[clamp(2rem,5vw,4rem)]
                       text-white/95 italic font-semibold
-                      sm:absolute sm:-top-15 sm:left-[-3%] lg:left-[-5%]  lg:-top-18
+                      sm:absolute sm:-top-15 sm:left-[-3%] lg:left-[-5%]  lg:-top-22
                       ${isMobile ? '-mt-14' : ''}
                     `}
                     style={{
@@ -144,7 +145,7 @@ const Project = () => {
               </AnimatePresence>
 
               <div
-                className={`relative w-full overflow-hidden bg-black/20 shadow-2xl  md:shadow[0_35px_60px_-15px_rgba(0,0,0,0.7)]
+                className={`relative w-full overflow-hidden bg-black/20 shadow-2xl  md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)]
                   rounded-lg sm:rounded-xl h-[62vh] sm:h-[66vh]
                   ${isMobile ? 'mb-6' : 'mb-10 sm:mb-12'}
                 `}
@@ -159,7 +160,7 @@ const Project = () => {
                   className="w-full h-full object-cover object-top md:object-center rounded-lg drop-shadow-xl lg:drop-shadow-2xl"
                   style={{
                     zIndex : 10,
-                    filter : "drop-shadow(0,16px 40px rgba(0,0,0,0.65)",
+                    filter : "drop-shadow(0 16px 40px rgba(0,0,0,0.65))",
                     transition :"filter 250ms ease"
                   }}
                 />
@@ -167,7 +168,7 @@ const Project = () => {
 
               <div
                 className={`absolute ${
-                  isMobile ? '-bottom-10' : '-bottom-3'
+                  isMobile ? '-bottom-10' : '-bottom-8'
                 } w-full flex justify-center`}
               >
                 <a
