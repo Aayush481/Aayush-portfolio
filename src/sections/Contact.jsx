@@ -26,7 +26,7 @@ const InputField = ({ label, name, value, onChange, error, type = "text" }) => (
 
 
 const Contact = () => {
- const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     service: "",
@@ -40,7 +40,7 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-   
+
     if ((name === "budget") && value && !/^\d+$/.test(value)) {
       return;
     }
@@ -62,30 +62,30 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!validateForm()) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
-  setStatus("sending");
+    setStatus("sending");
 
-  try {
-    const response = await fetch("/.netlify/functions/sendEmail", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(formData),
-});
+    try {
+      const response = await fetch("/.netlify/functions/sendEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      setStatus("success");
-      setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
-    } else {
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      console.error(err);
       setStatus("error");
     }
-  } catch (err) {
-    console.error(err);
-    setStatus("error");
-  }
-};
+  };
   return (
     <section
       id="contact"

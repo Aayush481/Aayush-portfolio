@@ -1,14 +1,12 @@
-import fetch from "node-fetch";
+import fetch from "node-fetch"; 
 
 export async function handler(event) {
-  const body = JSON.parse(event.body);
-
   try {
+    const body = JSON.parse(event.body);
+
     const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         service_id: process.env.VITE_SERVICE_ID,
         template_id: process.env.VITE_TEMPLATE_ID,
