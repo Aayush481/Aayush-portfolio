@@ -8,7 +8,7 @@ import {
 
 import photo1 from '../assets/weatherApp.jpeg';
 import photo2 from '../assets/Razorpay_desktop.jpeg';
-import photo3 from '../assets/NoteKr_desk.jpeg';
+import photo3 from '../assets/Notekr_desk.jpeg';
 
 import img1 from '../assets/weatherMobile.jpeg';
 import img2 from '../assets/photo1.jpeg';
