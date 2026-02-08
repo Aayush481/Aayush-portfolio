@@ -28,6 +28,7 @@ function App() {
   <Achievement/>
    <Experience/>
    <Contact/>
+   
    <Footer/>
    
     </div>

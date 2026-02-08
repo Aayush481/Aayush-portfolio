@@ -13,7 +13,7 @@ const OverlayMenu = ({ isOpen, onClose }) => {
             <FiX size={40} color="#fff" onClick={onClose} />
           </button>
           <ul className="flex justify-center items-center  gap-5 lg:gap-10 flex-col">
-            {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Testimonials', 'Contact'].map((item, index) => (
+            {['Home', 'About', 'Skills', 'Projects', 'Experience', 'Achivements', 'Contact'].map((item, index) => (
               <motion.li
                 key={item}
                 initial={{ opacity: 0, y: 20 }}

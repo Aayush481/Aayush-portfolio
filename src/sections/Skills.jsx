@@ -87,7 +87,7 @@ const Skills = () => {
   });
 
   return (
-    <div ref={sectionRef} className="w-full py-25  bg-black flex flex-col justify-center items-center gap-8 relative">
+    <div ref={sectionRef} id="skills" className="w-full py-25  bg-black flex flex-col justify-center items-center gap-8 relative">
       {/* Heading */}
       <div className="absolute -left-32 -top-23 w-[13vw] h-[13w] sm:w-[13vw] sm:h-[13vw] md:w-[16vw] md:h-[16vw] max-w-[500px] max-h-[500px] rounded-full 
       bg-linear-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-30 

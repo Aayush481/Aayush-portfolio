@@ -129,9 +129,9 @@ const Project = () => {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className={`
                       block text-center
-                      text-[clamp(2rem,5vw,4rem)]
+                      text-[clamp(2rem,5vw,3.5rem)]
                       text-white/95 italic font-semibold
-                      sm:absolute sm:-top-15 sm:left-[-3%] lg:left-[-5%]  lg:-top-22
+                      sm:absolute sm:-top-15 sm:left-[-3%] lg:left-[-5%]  lg:-top-22 xl:-top-18
                       ${isMobile ? '-mt-14' : ''}
                     `}
                     style={{
@@ -146,8 +146,8 @@ const Project = () => {
 
               <div
                 className={`relative w-full overflow-hidden bg-black/20 shadow-2xl  md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)]
-                  rounded-lg sm:rounded-xl h-[62vh] sm:h-[66vh]
-                  ${isMobile ? 'mb-6' : 'mb-10 sm:mb-12'}
+                  rounded-lg sm:rounded-xl h-[62vh] sm:h-[66vh] xl:h-[70vh]
+                  ${isMobile ? 'mb-6' : 'mb-10 sm:mb-12 xl:mb-15'}
                 `}
                 style={{ zIndex: 10,
                   transition : "box-shadow 200ms ease",
@@ -168,7 +168,7 @@ const Project = () => {
 
               <div
                 className={`absolute ${
-                  isMobile ? '-bottom-10' : '-bottom-8'
+                  isMobile ? '-bottom-10' : '-bottom-8 xl:bottom-1'
                 } w-full flex justify-center`}
               >
                 <a

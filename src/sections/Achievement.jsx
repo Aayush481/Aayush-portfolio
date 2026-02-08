@@ -41,9 +41,9 @@ const achievements = [
 
 const Achievement = () => {
   return (
-    <section className="relative w-full min-h-screen bg-black text-white flex flex-col items-center px-6 py-20">
+    <section id="achivements" className="relative w-full min-h-screen bg-black text-white flex flex-col items-center px-6 py-20">
       <motion.h2
-        className="text-4xl sm:text-5xl font-semibold text-center mb-16"
+        className="text-4xl sm:text-5xl -xl font-semibold text-center mb-16 "
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
