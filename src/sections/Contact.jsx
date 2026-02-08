@@ -6,9 +6,9 @@ import decorativeImg from "../assets/a ceramic planter wi.png";
 import laptopImg from "../assets/laptop-8556518_1280.png";
 
 
-const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
-const PUBLIC_ID = import.meta.env.VITE_PUBLIC_ID;
+// const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+// const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+// const PUBLIC_ID = import.meta.env.VITE_PUBLIC_ID;
 
 const InputField = ({ label, name, value, onChange, error, type = "text" }) => (
   <div>
@@ -62,39 +62,29 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!validateForm()) return;
 
-    setStatus("sending");
+  setStatus("sending");
 
-    try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
-          service: formData.service,
-          budget: formData.budget,
-          idea: formData.idea,
-        },
-        PUBLIC_ID
-      );
+  try {
+    const response = await fetch("/.netlify/functions/sendEmail", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    });
 
+    if (response.ok) {
       setStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        service: "",
-        budget: "",
-        idea : "",
-      });
-    } catch (err) {
-      console.error(err);
+      setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
+    } else {
       setStatus("error");
     }
-  };
+  } catch (err) {
+    console.error(err);
+    setStatus("error");
+  }
+};
   return (
     <section
       id="contact"
