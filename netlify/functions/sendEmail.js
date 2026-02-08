@@ -1,21 +1,31 @@
-import emailjs from "@emailjs/browser";
+import fetch from "node-fetch";
 
 export async function handler(event) {
   const body = JSON.parse(event.body);
 
   try {
-    await emailjs.send(
-      process.env.VITE_SERVICE_ID,
-      process.env.VITE_TEMPLATE_ID,
-      {
-        name: body.name,
-        email: body.email,
-        service: body.service,
-        budget: body.budget,
-        idea: body.idea,
+    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      process.env.VITE_PUBLIC_ID
-    );
+      body: JSON.stringify({
+        service_id: process.env.VITE_SERVICE_ID,
+        template_id: process.env.VITE_TEMPLATE_ID,
+        user_id: process.env.VITE_PUBLIC_ID,
+        template_params: {
+          name: body.name,
+          email: body.email,
+          service: body.service,
+          budget: body.budget,
+          idea: body.idea,
+        },
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`EmailJS error: ${response.statusText}`);
+    }
 
     return {
       statusCode: 200,

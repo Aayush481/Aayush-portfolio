@@ -70,9 +70,10 @@ const Contact = () => {
 
   try {
     const response = await fetch("/.netlify/functions/sendEmail", {
-      method: "POST",
-      body: JSON.stringify(formData),
-    });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
 
     if (response.ok) {
       setStatus("success");
