@@ -1,5 +1,3 @@
-import fetch from "node-fetch"; 
-
 export async function handler(event) {
   try {
     const body = JSON.parse(event.body);
@@ -22,7 +20,7 @@ export async function handler(event) {
     });
 
     if (!response.ok) {
-      throw new Error(`EmailJS error: ${response.statusText}`);
+      throw new Error(`EmailJS error: ${response.status} ${response.statusText}`);
     }
 
     return {
