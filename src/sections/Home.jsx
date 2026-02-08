@@ -3,6 +3,7 @@ import ParticlesBackground from '../components/ParticlesBackground';
 import { motion } from 'framer-motion';
 import { FaXTwitter, FaLinkedin, FaGithub } from 'react-icons/fa6'
 import resume from '../assets/aayushResume.pdf'
+import img from "../assets/myImage.jpeg"
 
 
 
@@ -147,7 +148,7 @@ const Home = () => {
         {/* Right image */}
         <div className="flex justify-center items-center">
           <img
-            src="../src/assets/myImage.jpeg"
+            src={img}
             alt="Profile"
             className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px] xl:max-w-[400px] object-cover rounded-full border-4 border-white shadow-lg"
           />
