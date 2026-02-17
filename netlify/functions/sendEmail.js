@@ -1,33 +1,41 @@
+import nodemailer from "nodemailer";
+
 export async function handler(event) {
   try {
     const body = JSON.parse(event.body);
 
-    const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        service_id: process.env.VITE_SERVICE_ID,
-        template_id: process.env.VITE_TEMPLATE_ID,
-        user_id: process.env.VITE_PUBLIC_ID,
-        template_params: {
-          name: body.name,
-          email: body.email,
-          service: body.service,
-          budget: body.budget,
-          idea: body.idea,
-        },
-      }),
-    });
 
-    if (!response.ok) {
-      throw new Error(`EmailJS error: ${response.status} ${response.statusText}`);
-    }
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "aayush6b12@gmail.com",
+        pass: "easg matc wooy ecms",
+      },
+    });
+    
+
+    const mailOptions = {
+      from: `"${body.name}" <${body.email}>`,
+      replyTo: body.email,
+      to: "aayush6b12@gmail.com",
+      subject: "New Contact Form Submission",
+      text: `
+    Name: ${body.name}
+    Email: ${body.email}
+    Service: ${body.service}
+    Budget: ${body.budget}
+    Idea: ${body.idea}
+  `,
+    };
+
+    await transporter.sendMail(mailOptions);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true, message: "Email sent successfully" }),
     };
   } catch (err) {
+    console.error("Error sending email:", err);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: err.message }),

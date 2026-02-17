@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+
 import { motion } from "framer-motion";
 import ParticlesBackground from "../components/ParticlesBackground";
 import decorativeImg from "../assets/a ceramic planter wi.png";
