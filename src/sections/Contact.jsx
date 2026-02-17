@@ -6,10 +6,6 @@ import decorativeImg from "../assets/a ceramic planter wi.png";
 import laptopImg from "../assets/laptop-8556518_1280.png";
 
 
-// const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
-// const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
-// const PUBLIC_ID = import.meta.env.VITE_PUBLIC_ID;
-
 const InputField = ({ label, name, value, onChange, error, type = "text" }) => (
   <div>
     <label className="block mb-1">{label} <span className="text-red-600">*</span></label>
@@ -78,6 +74,7 @@ const Contact = () => {
       if (response.ok) {
         setStatus("success");
         setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
+        setInterval(()=>{setStatus("");},2000)
       } else {
         setStatus("error");
       }

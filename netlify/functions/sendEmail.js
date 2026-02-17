@@ -7,12 +7,15 @@ export async function handler(event) {
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: "aayush6b12@gmail.com",
         pass: "easg matc wooy ecms",
       },
     });
-    
+
 
     const mailOptions = {
       from: `"${body.name}" <${body.email}>`,
