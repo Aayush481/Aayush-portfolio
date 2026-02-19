@@ -1,15 +1,11 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from 'framer-motion';
+import { motion,AnimatePresence,useScroll,useMotionValueEvent,} from 'framer-motion';
 
 import photo1 from '../assets/weatherApp.jpeg';
 import photo2 from '../assets/Razorpay_desktop.jpeg';
 import photo3 from '../assets/Notekr_desk.jpeg';
-
+import pr2 from '../assets/pr2.jpeg';
+import pr2OnPhone from '../assets/pr2OnPhone.jpeg';
 import img1 from '../assets/weatherMobile.jpeg';
 import img2 from '../assets/photo1.jpeg';
 import img3 from '../assets/photo2.jpeg';
@@ -45,10 +41,10 @@ const Project = () => {
         bgColor: '#2e1a47',
       },
       {
-        title: 'RazorPay Clone',
+        title: 'Anamika',
         link: 'https://github.com/Aayush481/razorpay-clone-project.git',
-        img: isMobile ? img2 : photo2,
-        bgColor: '#1e3a5f',
+        img: isMobile ? pr2OnPhone : pr2,
+        bgColor: '#6A0D25',
       },
       {
         title: 'NoteKr App',
@@ -146,7 +142,7 @@ const Project = () => {
 
               <div
                 className={`relative w-full overflow-hidden bg-black/20 shadow-2xl  md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)]
-                  rounded-lg sm:rounded-xl h-[62vh] sm:h-[66vh] xl:h-[70vh]
+                  rounded-lg sm:rounded-xl h-[50vh] sm:h-[66vh] xl:h-[72vh] 
                   ${isMobile ? 'mb-6' : 'mb-10 sm:mb-12 xl:mb-15'}
                 `}
                 style={{ zIndex: 10,
@@ -157,7 +153,7 @@ const Project = () => {
                   src={pr.img}
                   alt={pr.title}
                   loading="lazy"
-                  className="w-full h-full object-cover object-top md:object-center rounded-lg drop-shadow-xl lg:drop-shadow-2xl"
+                  className="w-full h-full object-cover object-top  md:object-center rounded-lg drop-shadow-xl lg:drop-shadow-2xl"
                   style={{
                     zIndex : 10,
                     filter : "drop-shadow(0 16px 40px rgba(0,0,0,0.65))",
