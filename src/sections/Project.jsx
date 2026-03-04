@@ -42,7 +42,7 @@ const Project = () => {
       },
       {
         title: 'Anamika',
-        link: 'https://github.com/Aayush481/razorpay-clone-project.git',
+        link: 'anamikamakeover.netlify.app',
         img: isMobile ? pr2OnPhone : pr2,
         bgColor: '#6A0D25',
       },
